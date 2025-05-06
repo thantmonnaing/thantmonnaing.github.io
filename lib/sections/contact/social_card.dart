@@ -24,7 +24,7 @@ class _SocalCardState extends State<SocalCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: FittedBox(
         child: InkWell(
           onTap: widget.press,
@@ -34,8 +34,8 @@ class _SocalCardState extends State<SocalCard> {
             });
           },
           child: AnimatedContainer(
-            duration: Duration(milliseconds: 200),
-            padding: EdgeInsets.symmetric(
+            duration: const Duration(milliseconds: 200),
+            padding: const EdgeInsets.symmetric(
               vertical: kDefaultPadding / 2,
               horizontal: kDefaultPadding * 1.5,
             ),
@@ -51,8 +51,8 @@ class _SocalCardState extends State<SocalCard> {
                   height: 80,
                   width: 80,
                 ),
-                SizedBox(width: kDefaultPadding),
-                Text(widget.name),
+                const SizedBox(width: kDefaultPadding),
+                Text(widget.name,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
               ],
             ),
           ),

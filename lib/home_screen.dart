@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     AboutSection(key: globalList[1]),
                     SkillsSection(key: globalList[2]),
                     ProjectsSection(key: globalList[3]),
-                    ContactSection(key: globalList[4])
+                    ContactSection(key: globalList[4]),
                     //ImageTransitionPage(key: globalList[4])
                   ],
                 ),

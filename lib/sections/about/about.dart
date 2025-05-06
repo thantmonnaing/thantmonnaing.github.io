@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
-//import 'dart:html' as html;
+import 'dart:html' as html;
 import 'package:flutter/services.dart' show rootBundle;
 import '../../components/section_title.dart';
 import '../../constants.dart';
 
-class AboutSection extends StatelessWidget {
+class AboutSection extends StatefulWidget {
   const AboutSection({super.key});
 
+  @override
+  State<AboutSection> createState() => _AboutSectionState();
+}
+
+class _AboutSectionState extends State<AboutSection> {
+  bool isHover = false;
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -108,33 +115,51 @@ class AboutSection extends StatelessWidget {
   }
 
   Widget downloadCV(){
-    return Container(
-      alignment: Alignment.center,
-      height: 40,
-      width: 150,
-      decoration: BoxDecoration(
-          color: kTextColor.withOpacity(0.8),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(100.0),
-          ),
-          boxShadow: const [
-            BoxShadow(
-                color: Colors.white,
-                blurRadius: 3,
-                offset: Offset(0, 2),
-                blurStyle:
-                BlurStyle.outer // changes position of shadow
+    return InkWell(
+      onTap: () async{
+        setState(() {
+          loading = true;
+        });
+        await downloadPdfWeb('assets/pdf/tmn.pdf', 'Thant_Mon_Naing_CV.pdf').then((_) {
+          setState(() {
+            loading = false;
+          });
+        });
+      },
+      onHover: (value) {
+        setState(() {
+          isHover = value;
+        });
+      },
+      child: Container(
+        alignment: Alignment.center,
+        height: 40,
+        width: 150,
+        decoration: BoxDecoration(
+            color: kTextColor.withOpacity(0.8),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(100.0),
             ),
-          ]),
-      child: Center(
-        child: GestureDetector(
-          onTap: () {
-            downloadPdfWeb('assets/pdf/tmn.pdf', 'Thant_Mon_Naing_CV.pdf');
-          },
-          child: const Text(
-            'Download CV',
+            boxShadow:  [
+              isHover ? const BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 3,
+                  offset: Offset(2, 2),
+                  blurStyle:
+                  BlurStyle.outer // changes position of shadow
+              ) : const BoxShadow(
+                  color: Colors.white,
+                  blurRadius: 3,
+                  offset: Offset(0, 2),
+                  blurStyle:
+                  BlurStyle.outer // changes position of shadow
+              ),
+            ]),
+        child:  Center(
+          child: Text(
+            loading ? "Downloading...":'Download CV',
             textAlign: TextAlign.left,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               letterSpacing: 0.0,
               color: Colors.white,
@@ -145,8 +170,8 @@ class AboutSection extends StatelessWidget {
     );
   }
 
-  void downloadPdfWeb(String assetPath, String fileName) async {
-    /*try {
+  Future<void> downloadPdfWeb(String assetPath, String fileName) async {
+    try {
       final byteData = await rootBundle.load(assetPath);
       final buffer = byteData.buffer.asUint8List();
       final blob = html.Blob([buffer]);
@@ -156,7 +181,10 @@ class AboutSection extends StatelessWidget {
         ..click();
       html.Url.revokeObjectUrl(url);
     } catch (e) {
+      setState(() {
+        loading = false;
+      });
       print("Error downloading PDF: $e");
-    }*/
+    }
   }
 }

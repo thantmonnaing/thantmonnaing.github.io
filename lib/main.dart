@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:tmn_portfolio/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Thant Mon Naing',
           debugShowCheckedModeBanner: false,
+          builder: FlutterSmartDialog.init(),
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
