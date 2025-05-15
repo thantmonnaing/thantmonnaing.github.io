@@ -64,7 +64,7 @@ class _ShimmerWidgetState extends State<ShimmerWidget> {
       child: Text(
         widget.char,
         style:
-            TextStyle(fontWeight: FontWeight.bold, color: _colorAnimation.value),
+            TextStyle(fontWeight: FontWeight.bold, color: _colorAnimation.value,fontSize: 12),
       ),
     );
   }

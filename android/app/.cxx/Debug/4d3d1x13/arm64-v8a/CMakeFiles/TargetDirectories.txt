@@ -1,0 +1,2 @@
+/Users/sourcecode/Documents/my/tmn_portfolio/android/app/.cxx/Debug/4d3d1x13/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/sourcecode/Documents/my/tmn_portfolio/android/app/.cxx/Debug/4d3d1x13/arm64-v8a/CMakeFiles/rebuild_cache.dir

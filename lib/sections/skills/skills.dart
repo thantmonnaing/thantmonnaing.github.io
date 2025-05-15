@@ -24,7 +24,6 @@ class SkillsSection extends StatelessWidget {
           const SizedBox(height: 20),
           Container(
             constraints: const BoxConstraints(maxWidth: 1110),
-            //margin: const EdgeInsets.only(top: kDefaultPadding),
             padding: const EdgeInsets.all(kDefaultPadding),
             child: Center(
               child:GlobalValue.checkWidth(size.width) ? Column(
@@ -46,7 +45,7 @@ class SkillsSection extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      progressWidget('RESTful Web Services', 0.8),
+                      progressWidget('REST API', 0.8),
                       const SizedBox(height: 20,),
                       progressWidget('Firebase', 0.8),
                       const SizedBox(height: 20,),
@@ -88,7 +87,7 @@ class SkillsSection extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      progressWidget('RESTful Web Services', 0.8),
+                      progressWidget('REST API', 0.8),
                       const SizedBox(height: 20,),
                       progressWidget('Firebase', 0.8),
                       const SizedBox(height: 20,),

@@ -86,10 +86,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 controller: scrollController,
                 child: Column(
                   children: [
+                    ProjectsSection(key: globalList[3]),
                     ProfileSection(key: globalList[0]),
                     AboutSection(key: globalList[1]),
                     SkillsSection(key: globalList[2]),
-                    ProjectsSection(key: globalList[3]),
+
                     ContactSection(key: globalList[4]),
                     //ImageTransitionPage(key: globalList[4])
                   ],
